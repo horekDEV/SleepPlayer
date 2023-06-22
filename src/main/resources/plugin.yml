@@ -1,0 +1,7 @@
+name: SleepPlayer
+version: '${project.version}'
+main: horekdev.ru.sleepplayer.SleepPlayer
+api-version: '1.19'
+authors: [ horek ]
+description: this plugin was made for похуй
+website: horek-dev.ru

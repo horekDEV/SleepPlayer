@@ -14,6 +14,7 @@ public final class SleepPlayer extends JavaPlugin {
     @Override
     public void onEnable() {
         instance = this;
+        saveDefaultConfig();
 
         System.out.println("Plugin " + getDescription().getName() + " was start");
         System.out.println("Made by " + getDescription().getAuthors());

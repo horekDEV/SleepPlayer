@@ -26,18 +26,24 @@ public class PlayerBedEvent implements Listener {
 
                 if (sleeping >= needing) {
                     Bukkit.getWorlds().stream().filter(World::isNatural).forEach(world -> world.setTime(100));
-                    breadCast(players, "чтобы пропустить ночь необходиом еще: " + count + " игроков");
+                    broadCast(players, "чтобы скипнуть ночь необходимо еще: " + count + " игроков");
 
                 } else {
-                    breadCast(players, "ночь успешно пропущенна :)");
+                    skipCast(players);
                 }
             }
         }.runTaskLater(SleepPlayer.getInstance(), 1L);
     }
 
-    private void breadCast(Collection<? extends Player> collection, String text) {
+    private void skipCast(Collection<? extends Player> collection) {
         for (Player p: collection) {
-            p.sendMessage(text);
+            p.sendMessage(SleepPlayer.getInstance().getConfig().getString(".skip_message"));
+        }
+    }
+
+    private void broadCast(Collection<? extends  Player> collection, String text) {
+        for (Player player: collection) {
+            player.sendMessage(text);
         }
     }
 }
